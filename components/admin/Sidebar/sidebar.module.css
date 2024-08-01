@@ -1,0 +1,32 @@
+.sidebar {
+  width: 349px;
+  height: 574px;
+  margin-top: 40px;
+  margin-left: 19px;
+  margin-right: 19px;
+  border-radius: 14px;
+  background: #c74feb;
+}
+
+.sidebar > div {
+  display: flex;
+  gap: 25px;
+  width: 236px;
+  padding: 5px 0 5px 15px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.10000000149011612px;
+  text-align: left;
+  color: #fcddec;
+  border-radius: 4px;
+}
+
+.sidebar > div:hover {
+  cursor: pointer;
+  background: #d664f8;
+  transition: 333ms;
+}
+
+.active {
+  background: #d664f8;
+}

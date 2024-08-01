@@ -1,0 +1,60 @@
+.logoName{
+    color: #ffffff;
+    padding-top: 57px;
+    padding-left: 32px;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: 0.03em;
+}
+
+.adminLogin{
+    width: 830px;
+    height: 411.41px;
+    gap: 0px;
+    opacity: 0px;
+}  
+
+.adminLoginForm{
+    background-color:#38394E;
+}
+
+.adminLoginForm p{
+    font-size: 35px;
+    font-weight: 700;
+    margin-top: 58px;
+    color: #C7C7C7;
+}
+
+.adminLoginForm input{
+    width: 318px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 400;
+    text-indent: 40px;
+    background-color:  #5A5B70;
+    color: #C7C7C7;
+    outline: none;
+   
+}
+
+.adminLoginForm input::placeholder{
+    color: #C7C7C7;
+    opacity: 1;
+   
+}
+
+.adminLoginForm button{
+    width: 318.8px;
+    height: 50px;
+    border-radius: 4px;
+    background: #C035A2;
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #ffffff;
+}
+.adminLoginForm button:hover{
+    background: #8f2277;
+    transition: 333ms;
+}

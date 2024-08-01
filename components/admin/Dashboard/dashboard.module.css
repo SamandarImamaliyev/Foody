@@ -1,0 +1,52 @@
+.orders {
+  width: 580px;
+  height: 472px;
+  border-radius: 14px;
+  background: #27283c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.totalSalary {
+  height: 472px;
+  border-radius: 14px;
+  background: #27283c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.apexcharts-tooltip span {
+  color: #ffffff;
+}
+
+.risks {
+  width: 790px;
+  height: 472px;
+  border-radius: 14px;
+  background: #27283c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.action {
+  height: 472px;
+  border-radius: 14px;
+  background: #27283c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.message {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #8e8e93;
+}

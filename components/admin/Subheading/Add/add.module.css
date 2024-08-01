@@ -1,0 +1,22 @@
+.addButton {
+  width: 168px;
+  height: 35px;
+  border-radius: 14px;
+  background: #c035a2;
+}
+
+.addButton:hover {
+  background: #a52e8b;
+  transition: 333ms;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
