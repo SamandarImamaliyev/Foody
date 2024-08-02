@@ -20,35 +20,35 @@ const HeaderPopUp = () => {
           >
             &times;
           </button>
-          <h2>Add product</h2>
+          <div>Add product</div>
         </div>
         <div className={styles.modalBody}>
-          <div className='flex justify-between mt-10 pe-[50px]'>
-            <div style={{ fontSize: '18px' }}>Upload your product image</div>
-            <div>
+          <div className='flex flex-col sm:justify-between sm:flex-row mt-10 sm:pe-[50px]'>
+            <div className={styles.uploadImageText}>Upload your product image</div>
+            <div className={styles.uploadFile}>
               <UploadFile />
             </div>
           </div>
-          <div className='mt-16 flex justify-between pe-[50px]'>
-            <div style={{ width: '257px', fontSize: '18px' }}>
+          <div className='mt-10 sm:mt-16 flex flex-col sm:flex-row sm:justify-between sm:pe-[50px]'>
+            <div className={styles.descText}>
               Add your Product description and necessary information
             </div>
             <div className={styles.info}>
-              <div className='flex flex-col w-[546px]'>
+              <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
                 <label htmlFor='name'>Name</label>
                 <input type='text' id='name' />
               </div>
 
-              <div className='flex flex-col w-[546px]'>
+              <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
                 <label htmlFor='desc'>Description</label>
                 <textarea type='text' id='desc' style={{ height: '133px' }} />
               </div>
 
-              <div className='flex flex-col w-[546px]'>
+              <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
                 <label htmlFor='price'>Price</label>
                 <input type='number' id='price' />
               </div>
-              <div className='flex flex-col w-[546px]'>
+              <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
                 <label htmlFor='restaurant'>Restaurant</label>
                 <select id='restaurant' className={styles.select}>
                   <option value='volvo' className={styles.option}>

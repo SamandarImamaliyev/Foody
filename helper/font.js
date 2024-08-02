@@ -1,4 +1,4 @@
-import { Montserrat, Roboto, Mukta } from '@next/font/google';
+import { Montserrat, Roboto, Mukta } from "next/font/google";
 
 const montserrat = Montserrat({
     weight: ['300', '400', '500', '700'],

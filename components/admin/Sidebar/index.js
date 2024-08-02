@@ -27,7 +27,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className='flex'>
+    <div>
       <div
         className={`${styles.sidebar} ${roboto.className} flex flex-col gap-6 items-center pt-11`}
       >

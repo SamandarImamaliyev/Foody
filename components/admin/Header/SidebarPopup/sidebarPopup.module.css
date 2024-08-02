@@ -1,0 +1,230 @@
+/* The Modal (background) */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+  }
+  
+  /* Modal Content */
+  .modalContent {
+    position: fixed;
+    left: 0;
+    background-color: #C74FEB;
+    width: 306px;
+    height: 100vh;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+  }
+  .modalBody>div > div:hover {
+    cursor: pointer;
+    background: #d664f8;
+    transition: 333ms;
+  }
+  /* The Close Button */
+  .close {
+    color: #6d6c6c;
+    float: left;
+    font-size: 48px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 333ms;
+  }
+  
+  .modalHeader {
+    padding: 2px 16px;
+    display: flex;
+    margin-top: 16px;
+    gap: 15px;
+  }
+
+  .modalHeader div{
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color:  #F5F5F5;
+  }
+  .modalHeader span{
+    color: #fb923c;
+    margin-left: 3px;
+  }
+  .active{
+    background: #d664f8;
+  }
+  .modalBody {
+    padding: 2px 16px;
+    margin-left: 15px;
+    margin-top: 50px;
+  }
+  .modalBody div{
+    display: flex;
+    gap: 25px;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .modalBody>div>div{
+    padding: 8px;
+  }
+  .modalFooter {
+    padding: 2px 50px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modalFooter button {
+    width: 400px;
+    height: 50px;
+    border-radius: 14px;
+  }
+  
+  .cancel {
+    background: #43445a;
+  }
+  .cancel:hover {
+    background: #43445abe;
+    transform: scale(0.97);
+    transition: 333ms;
+  }
+  .create {
+    background: #c035a2;
+  }
+  .create:hover {
+    background: #c035a2b4;
+    transform: scale(0.97);
+    transition: 333ms;
+  }
+  
+  .info {
+    width: 626px;
+    height: 550px;
+    border-radius: 10px;
+    background-color: #43445a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .info label {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    margin-top: 25px;
+  }
+  
+  .info input {
+    height: 46px;
+    background: #5a5b70;
+    outline: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-align: left;
+    text-indent: 15px;
+    margin-top: 15px;
+  }
+  
+  .select {
+    height: 46px;
+    background: #5a5b70;
+    outline: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-align: left;
+    text-indent: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .option {
+    height: 46px;
+    background: #5a5b70;
+    outline: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-align: left;
+    text-indent: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .info textarea {
+    background: #5a5b70;
+    outline: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-align: left;
+    text-indent: 15px;
+    margin-top: 15px;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes slideIn {
+    right {
+      bottom: 0;
+      opacity: 0;
+    }
+    left {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    right {
+      bottom: 0;
+      opacity: 0;
+    }
+    left {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

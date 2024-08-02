@@ -6,6 +6,12 @@ const useShowPopupStore = create((set, get) => {
     setShowPopup: newValue =>
       set(state => {
         return { showPopup: newValue }
+      }),
+
+    showSidebarModal: false,
+    setShowSidebarModal: newValue =>
+      set(state => {
+        return { showSidebarModal: newValue }
       })
   }
 })

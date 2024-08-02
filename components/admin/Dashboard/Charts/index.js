@@ -35,20 +35,36 @@ const PieChart = () => {
         type: 'gradient'
       },
       title: {
-        text: 'Projects by account'
+        text: 'Projects by account',
+        style: {
+          fontSize: '12px',
+        },
       },
       responsive: [
         {
-          breakpoint: 480,
+          breakpoint: 1520,
           options: {
             chart: {
-              width: 200
+              width: 400,
+              height: 400
             },
             legend: {
               position: 'bottom'
             }
           }
-        }
+        },
+        {
+          breakpoint: 424,
+          options: {
+            chart: {
+              width: 290,
+              height: 272
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        },
       ]
     }
   }
@@ -100,7 +116,33 @@ const SalaryChart = () => {
         x: {
           format: 'dd/MM/yy HH:mm'
         }
-      }
+      },
+      responsive: [
+        {
+          breakpoint: 1520,
+          options: {
+            chart: {
+              width: 500,
+              height: 350
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        },
+        {
+          breakpoint: 424,
+          options: {
+            chart: {
+              width: 270,
+              height: 272
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        },
+      ]
     }
   }
   return (

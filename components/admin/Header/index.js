@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './header.module.css'
 import { montserrat, roboto, mukta } from '../../../helper/font'
 import adminAvatar from '../../../public/image/admin/adminAvatar.svg'
+import openSidebar from '../../../public/image/admin/sidebar/openSidebarModal.svg'
 import Image from 'next/image'
 import HeaderPopUp from './HeaderPopUp'
 import useAddPopupStore from '../../../store/showPopupStore'
@@ -11,6 +12,7 @@ import enIcon from '../../../public/image/langs/en.svg'
 import azIcon from '../../../public/image/langs/az.svg'
 import { useTranslation } from 'react-i18next';
 import useSetLanguageStore from '../../../store/setLanguageStore'
+import SidebarPopup from './SidebarPopup'
 
 const Header = () => {
   const { t } = useTranslation();
@@ -25,13 +27,21 @@ const Header = () => {
 
   const [showLang, setShowLang] = useState(false);
 
-  const { setShowPopup, showPopup } = useAddPopupStore(state => {
+  const { setShowPopup, showPopup, showSidebarModal, setShowSidebarModal } = useAddPopupStore(state => {
     return state
   })
+
+  const openSidebarModal = () => {
+    setShowSidebarModal(true)
+  }
+
   return (
-    <div>
-      <div className='flex  bg-[#27283C] h-[69px] mx-[19px] rounded-b-2xl'>
-        <div className={`logoName columns-3 ${montserrat.className}`}>
+    <div >
+      <div className='flex  bg-[#27283C] h-[40px] w-[cal(100%-38px)] sm:h-[69px] sm:mx-[19px] rounded-b-2xl'>
+        <div className={styles.openSidebar} onClick={() => { openSidebarModal() }}>
+          <Image src={openSidebar} width={19.5} height={12} />
+        </div>
+        <div className={`logoName sm:columns-3 ${montserrat.className} ${styles.logo}`}>
           Foody<span className='text-orange-400'>.</span>
         </div>
         <div className='flex flex-1 justify-end items-center gap-4 me-4'>
@@ -41,11 +51,11 @@ const Header = () => {
               setShowPopup(true)
             }}
           >
-            + {t("add product")}
+            + <div>{t("add product")}</div>
 
           </button>
           <div style={{ position: 'relative' }}>
-            <div style={{ cursor: 'pointer' }} onClick={() => {
+            <div style={{ cursor: 'pointer' }} className={styles.images} onClick={() => {
               setShowLang(!showLang)
             }}>
               <Image
@@ -57,7 +67,7 @@ const Header = () => {
               />
             </div>
             {showLang &&
-              <div className='absolute hover:cursor-pointer bg-[#27283C] mt-2 w-[40px] h-[40px] flex items-center justify-center' onClick={() => {
+              <div className={`absolute hover:cursor-pointer bg-[#27283C] mt-2 w-[40px] h-[40px] flex items-center justify-center ${styles.images}`} onClick={() => {
 
                 setLanguage(change === 1 ? 2 : 1)
                 setShowLang(false)
@@ -73,7 +83,7 @@ const Header = () => {
             }
           </div>
           <div className='flex items-end gap-4'>
-            <div>
+            <div className={styles.images}>
               <Image
                 src={adminAvatar}
                 alt='Admin avatar'
@@ -87,6 +97,7 @@ const Header = () => {
         </div>
       </div>
       {showPopup && <HeaderPopUp />}
+      {showSidebarModal && <SidebarPopup />}
     </div>
   )
 }

@@ -16,24 +16,24 @@ const Dashboard = () => {
     setCurrentPage(1)
   }, [])
   return (
-    <div>
-      <div className='flex gap-10 '>
+    <div className={styles.main}>
+      <div className='flex flex-col sm:flex-row gap-5 2xl:gap-10 '>
         <div className={styles.orders}>
-          <div className='text-white text-2xl mt-[10px]'>
+          <div className='text-white text-lg sm:text-xl 2xl:text-2xl mt-[10px]'>
             {t("ordersOfDashboard")}
           </div>
           <PieChart />
         </div>
         <div className={`${styles.totalSalary} flex-1`}>
-          <div className='text-white text-2xl mt-[10px]'>
+          <div className='text-white  text-lg sm:text-xl 2xl:text-2xl mt-[10px]'>
             {t("totalSalary")}
           </div>
           <SalaryChart />
         </div>
       </div>
-      <div className='flex gap-10 mt-10'>
+      <div className='flex flex-col sm:flex-row gap-5 2xl:gap-10 mt-10'>
         <div className={styles.risks}>
-          <div className='text-white text-2xl mt-[10px] h-full flex flex-col items-center'>
+          <div className='text-white text-lg sm:text-xl 2xl:text-2xl mt-[10px] h-full flex flex-col items-center'>
             <div>
               {t("assignedRisks")}
             </div>
@@ -45,7 +45,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className={`${styles.action} flex-1`}>
-          <div className='text-white text-2xl mt-[10px] h-full flex flex-col items-center'>
+          <div className='text-white text-lg sm:text-xl 2xl:text-2xl mt-[10px] h-full flex flex-col items-center'>
             <div>
               {t("assigned action items")}
             </div>

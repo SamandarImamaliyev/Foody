@@ -50,3 +50,54 @@
   letter-spacing: 0.01em;
   color: #8e8e93;
 }
+
+@media screen and (max-width:1520px){
+  .orders {
+    width: 480px;
+    gap: 20px;
+  }
+
+  .totalSalary {
+    gap: 20px;
+  }
+  .risks {
+    width: 636px;
+    gap: 20px;
+  }
+
+  .action {
+    gap: 20px;
+  }
+  .message {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+  .orders {
+    width: 307px;
+    height: 290px;
+    gap: 5px;
+  }
+  .totalSalary {
+    gap: 5px;
+    height: 472x;
+    width: 307px;
+  }
+
+  .risks{
+    width: 307px;
+    gap: 5px;
+  }
+  .action{
+    width: 307px;
+    gap: 5px;
+  }
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}

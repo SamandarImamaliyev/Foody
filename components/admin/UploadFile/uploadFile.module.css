@@ -1,0 +1,9 @@
+.uploadFile{
+        width: '626px';
+        height: '122px';
+        background: '#43445A';
+        font-size: '18px';
+        display: 'flex';
+        flex-direction: 'column';
+        border-radius: '10px';
+}

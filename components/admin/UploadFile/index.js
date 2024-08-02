@@ -15,7 +15,7 @@ const VisuallyHiddenInput = styled('input')({
   width: 1
 })
 
-export default function UploadFile () {
+export default function UploadFile() {
   return (
     <Button
       component='label'
@@ -23,8 +23,8 @@ export default function UploadFile () {
       variant='contained'
       tabIndex={-1}
       style={{
-        width: '626px',
-        height: '122px',
+        width: '100%',
+        height: '100%',
         backgroundColor: '#43445A',
         fontSize: '18px',
         display: 'flex',

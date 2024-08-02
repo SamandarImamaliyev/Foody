@@ -6,6 +6,7 @@
   margin-right: 19px;
   border-radius: 14px;
   background: #c74feb;
+  display: flex;
 }
 
 .sidebar > div {
@@ -29,4 +30,22 @@
 
 .active {
   background: #d664f8;
+}
+
+@media screen and (max-width:1520px){
+  .sidebar {
+    width: 256px;
+    height: 504px;
+  }
+
+  .sidebar > div {
+    width: 216px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+  .sidebar{
+    display: none;
+  }
 }
