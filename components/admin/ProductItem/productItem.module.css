@@ -1,5 +1,17 @@
 .products {
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 50px;
+}
+
+@media screen and (max-width:1534px){
+  .products {
+  column-gap: 125px;
+  }
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+  .products {
+    justify-content: center;
+    }
 }

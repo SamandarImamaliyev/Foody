@@ -6,7 +6,7 @@ import Fade from '@mui/material/Fade'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { montserrat, roboto, mukta } from '../../../helper/font'
-import { deleteRestaurantById } from '../../../services/axios'
+import useDeleteModalStore from '../../../store/deleteModalStore/deleteModalStore'
 
 const style = {
   position: 'absolute',
@@ -17,16 +17,24 @@ const style = {
   height: 226,
   bgcolor: 'background.paper',
   borderRadius: '10px',
-  p: 4
+  p: 4,
+
+  ['@media screen and (min-width:375px) and (max-width:424px)']: {
+    width: 298,
+    height: 246,
+  }
+
 }
 
-export default function DeleteModal ({ id }) {
+export default function DeleteModal({ id, deleteItem, openModal }) {
   const [open, setOpen] = React.useState(true)
   const handleClose = () => setOpen(false)
+  const { refresh, setRefresh } = useDeleteModalStore();
 
-  const deleteRestaurant = async id => {
-    deleteRestaurantById(id)
-  }
+  React.useEffect(() => {
+    setOpen(true)
+  }, [openModal])
+
 
   return (
     <div>
@@ -75,7 +83,9 @@ export default function DeleteModal ({ id }) {
               <Button
                 className={`${montserrat.className} bg-red-500 text-black h-[34px] w-[106px] font-bold`}
                 onClick={() => {
-                  deleteRestaurant(id)
+                  deleteItem(id)
+                  setOpen(false)
+                  setRefresh(!refresh)
                 }}
               >
                 delete

@@ -1,6 +1,6 @@
 .card {
-  width: 300px;
-  height: 140px;
+  width: 100%;
+  height: 100%;
   gap: 0px;
   border-radius: 5px;
   background: #ffffff;
@@ -18,9 +18,14 @@
   display: flex;
   gap: 10px;
   height: 100%;
-  width: 243px;
+  width: 257px;
   align-items: center;
   margin-left: 5px;
+}
+
+.allImages{
+width: 100px; 
+height: 100px;
 }
 
 .restaurantName {
@@ -43,5 +48,24 @@
   transition: ease-in-out 333ms;
 }
 .image {
-  width: 121px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+@media screen and (min-width:875px) and (max-width:1524px){
+  .restaurantInfo {
+    gap: 10px;
+    width: 200px;
+  }
+
+  .allImages{
+    width: 80px; 
+    height: 70px;
+    }
+
+    .restaurantName {
+      font-size: 16px;
+    }
 }

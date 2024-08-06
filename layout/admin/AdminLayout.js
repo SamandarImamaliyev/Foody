@@ -31,7 +31,7 @@ const AdminLayout = ({ children }) => {
         <Header />
         <div className='flex'>
           <Sidebar />
-          <div className=' mt-[40px] w-[100%] sm:me-[19px] mb-8'> {children}</div>
+          <div className=' mt-[40px] w-[100%] px-[10px] sm:me-[19px] mb-8'> {children}</div>
         </div>
       </div>
     </div>

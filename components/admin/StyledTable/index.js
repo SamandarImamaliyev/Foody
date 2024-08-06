@@ -8,14 +8,22 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
     fontWeight: '600',
     textAlign: 'start',
     fontSize: '14px',
-    textIndent: '30px'
+    textIndent: '10px',
+    ['@media screen and (min-width:375px) and (max-width:424px)']: {
+      textIndent: '0px',
+      paddingLeft: '10px'
+    }
   },
   [`&.${tableCellClasses.body}`]: {
     color: '#454d59',
     fontSize: 14,
     fontWeight: '400',
     textAlign: 'start',
-    textIndent: '30px'
+    // textIndent: '30px',
+    ['@media screen and (min-width:375px) and (max-width:424px)']: {
+      fontSize: 12,
+      paddingLeft: '10px',
+    }
   }
 }))
 

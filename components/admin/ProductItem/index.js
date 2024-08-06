@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './productItem.module.css'
 import ProductCard from './ProductCard'
+import { Pagination, Stack } from '@mui/material'
 
 const ProductItem = ({ products, restaurant }) => {
   const itemsPerPage = 12
@@ -33,18 +34,20 @@ const ProductItem = ({ products, restaurant }) => {
           </div>
         ))}
       </div>
-      {totalPages > 1 && (
-        <Stack spacing={2} sx={{ marginTop: '70px' }}>
-          <Pagination
-            count={totalPages}
-            color='secondary'
-            sx={main}
-            size='large'
-            style={{ color: 'white' }}
-            onChange={paginated}
-          />
-        </Stack>
-      )}
+      <div className='flex justify-center'>
+        {totalPages > 1 && (
+          <Stack spacing={2} sx={{ marginTop: '70px' }}>
+            <Pagination
+              count={totalPages}
+              color='secondary'
+              sx={main}
+              size='large'
+              style={{ color: 'white' }}
+              onChange={paginated}
+            />
+          </Stack>
+        )}
+      </div>
     </div>
   )
 }

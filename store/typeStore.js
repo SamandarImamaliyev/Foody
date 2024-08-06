@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { getCategories, getRestaurants } from '../services/axios'
+import { getCategories, getOffersFromDB, getOrders, getRestaurants } from '../services/axios'
 
 const useTypeStore = create((set, get) => {
   return {
@@ -24,6 +24,23 @@ const useTypeStore = create((set, get) => {
         console.error(err)
       }
     },
+    getOffersState: async () => {
+      try {
+        const response = await getOffersFromDB()
+        get().setState(response.data.result.data)
+      } catch (err) {
+        console.error(err)
+      }
+    },
+    getOrdersState: async () => {
+      try {
+        const response = await getOrders()
+        get().setState(response.data.result.data)
+      } catch (err) {
+        console.error(err)
+      }
+    },
+
     stateName: '',
     setStateName: newName =>
       set(state => {

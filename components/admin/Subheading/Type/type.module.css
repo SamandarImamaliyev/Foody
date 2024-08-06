@@ -18,4 +18,29 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.01em;
+  padding: 0 10px;
+
+   text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.scrollbarForType::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbarForType::-webkit-scrollbar-track {
+  border-radius: 180px;
+}
+
+.scrollbarForType::-webkit-scrollbar-thumb {
+  background-color: #5a5b70;
+  border-radius: 180px;
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+  .typeButton {
+    width: 159px;
+    
+  }
 }

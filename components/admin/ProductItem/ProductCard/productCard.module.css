@@ -14,6 +14,12 @@
   transition: ease-in-out 333ms;
 }
 
+.productImage{
+  width: 160px;
+   height: 130px; 
+   object-fit: cover;
+}
+
 .productName {
   font-size: 18px;
   font-weight: 500;
@@ -42,4 +48,15 @@
 .edit:hover {
   transform: scale(1.3);
   transition: ease-in-out 333ms;
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+  .productCard {
+    width: 236px;
+    height: 311px;
+  }
+  .productImage{
+    width: 193px;
+     height: 180px; 
+  }
 }

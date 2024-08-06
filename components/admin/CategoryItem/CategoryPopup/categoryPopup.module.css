@@ -27,6 +27,11 @@
   animation-name: slideIn;
   animation-duration: 0.4s;
   color: #c7c7c7;
+  overflow: auto;
+}
+
+.modalContent::-webkit-scrollbar {
+  display: none;
 }
 
 /* The Close Button */
@@ -58,6 +63,14 @@
   margin-left: 15px;
 }
 
+.uploadImageText{
+  font-size: 18px;
+  }
+
+.uploadFile{
+  width: 626px;
+   height: 122px;
+}
 .modalBody {
   padding: 2px 16px;
   margin-left: 15px;
@@ -175,5 +188,50 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width:1534px){
+  .modalContent {
+    width: 948px;
+  }
+  .uploadFile{
+    width: 526px;
+  }
+  .info {
+  width: 526px;
+}
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+  .modal {
+    width: 100%;
+  }
+  
+  .modalContent {
+    width: 100%;
+  }
+.uploadFile{
+  width: 330px;
+   height: 99px;
+}
+.uploadImageText{
+  font-size: 14px;
+  margin-bottom: 15px;
+  }
+
+  .info {
+    width: 330px;
+  }
+
+   .modalFooter {
+    padding: 2px 30px;
+    margin-bottom: 25px;
+  }
+
+  .modalFooter button {
+    width: 155px;
+    height: 44px;
+    border-radius: 14px;
   }
 }

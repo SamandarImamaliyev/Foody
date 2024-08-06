@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './add.module.css'
-import HeaderPopUp from '../../Header/HeaderPopUp'
-import showPopupStore from '../../../../store/showPopupStore'
 import RestaurantPopup from '../../RestaurantItem/RestaurantPopup'
 import showRestaurantPopupStore from '../../../../store/showRestaurantPopupStore'
 import showCategoryPopupStore from '../../../../store/showCategoryPopupStore'
 import CategoryPopup from '../../CategoryItem/CategoryPopup'
+import useShowOffersPopupStore from '../../../../store/showOffersPopupStore'
+import OffersPopup from '../../OffersItem/OffersPopup'
 
 const Add = ({ add }) => {
   const { setShowRestaurantPopup, showRestaurantPopup } =
@@ -17,9 +17,11 @@ const Add = ({ add }) => {
       return state
     }
   )
-  // const { setShowOfferPopup, showOfferPopup } = showOfferPopupStore(state => {
-  //   return state
-  // })
+  const { setShowOffersPopup, showOffersPopup } = useShowOffersPopupStore(
+    state => {
+      return state
+    }
+  )
 
   const setPopup = () => {
     if (add === 'Restaurant') {
@@ -27,7 +29,7 @@ const Add = ({ add }) => {
     } else if (add === 'Category') {
       setShowCategoryPopup(true)
     } else if (add === 'Offer') {
-      setShowOfferPopup(true)
+      setShowOffersPopup(true)
     }
   }
   return (
@@ -45,6 +47,7 @@ const Add = ({ add }) => {
       </button>
       {showRestaurantPopup && <RestaurantPopup />}
       {showCategoryPopup && <CategoryPopup />}
+      {showOffersPopup && <OffersPopup />}
     </div>
   )
 }

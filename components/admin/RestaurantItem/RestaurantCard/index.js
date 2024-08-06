@@ -5,24 +5,37 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import BorderColorIcon from '@mui/icons-material/BorderColor'
 import DeleteModal from '../../DeleteModal'
 import useTypeStore from '../../../../store/typeStore'
+import { deleteRestaurantById } from '../../../../services/axios'
+import toast from 'react-hot-toast'
 
 const RestaurantCard = ({ restaurant }) => {
   const { stateName } = useTypeStore(state => {
     return state
   })
   const [activateModal, setActivateModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
   const [restaurantId, setRestaurantId] = useState('')
+
+  const deleteRestaurant = async (id) => {
+    const response = await deleteRestaurantById(id);
+    if (response.status == 204) {
+      toast.success("Restaurant successfully deleted")
+    } else {
+      toast.error(response.statusText)
+    }
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.restaurantInfo}>
-        <div>
+        <div className={styles.allImages}>
           <img
             src={restaurant.img_url}
             alt='restaurant logo'
             className={styles.image}
           />
         </div>
-        <div>
+        <div style={{ width: '150px' }}>
           <div className={styles.restaurantName}>{restaurant.name}</div>
           <div className={styles.category}>{stateName}</div>
         </div>
@@ -34,6 +47,7 @@ const RestaurantCard = ({ restaurant }) => {
             style={{ color: '#EB5757' }}
             onClick={() => {
               setActivateModal(true)
+              setOpenModal(!openModal)
               setRestaurantId(restaurant.id)
             }}
           />
@@ -42,7 +56,7 @@ const RestaurantCard = ({ restaurant }) => {
           <BorderColorIcon style={{ color: '#00B2A9' }} />
         </div>
       </div>
-      {activateModal && <DeleteModal id={restaurantId} />}
+      {activateModal && <DeleteModal id={restaurantId} deleteItem={deleteRestaurant} openModal={openModal} />}
     </div>
   )
 }

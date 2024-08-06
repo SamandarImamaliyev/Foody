@@ -7,10 +7,10 @@ import { montserrat, roboto, mukta } from '../../../helper/font'
 const Subheading = ({ text, type, add, handleClick, handleSearchByType }) => {
   return (
     <div
-      className={`${styles.subheading} flex flex-1 items-center ps-[40px] pe-[20px] justify-between mb-12`}
+      className={`${styles.subheading} sm:flex sm:flex-1 items-center sm:ps-[40px] sm:pe-[20px] justify-between mb-12`}
     >
       <div className={`${styles.text} ${roboto.className}`}>{text}</div>
-      <div className='flex gap-5'>
+      <div className={`${type && add ? styles.subheadingButtons : styles.subheadingButton}`}>
         {type && (
           <Type
             type={type}

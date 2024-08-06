@@ -1,22 +1,27 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import styles from './adminRestaurants.module.css'
 import Subheading from '../../../components/admin/Subheading'
 import AdminLayout from '../../../layout/admin/AdminLayout'
 import RestaurantItem from '../../../components/admin/RestaurantItem'
 import { getCategoryById, getRestaurants } from '../../../services/axios'
 import useTypeStore from '../../../store/typeStore'
 import useCurrentPageStore from '../../../store/currentPageStore'
+import useDeleteModalStore from '../../../store/deleteModalStore/deleteModalStore'
 
 const Restaurants = () => {
   const [restaurants, setRestaurants] = useState([])
   const { getCategoryState, setStateName, states } = useTypeStore(state => {
     return state
   })
+  const { refresh } = useDeleteModalStore();
+
   const { setCurrentPage } = useCurrentPageStore(state => {
     return state
   })
+  useEffect(() => {
+    showAllRestaurants()
+  }, [refresh])
 
   const showAllRestaurants = async () => {
     const allRestaurants = await getRestaurants()

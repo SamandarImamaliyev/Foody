@@ -1,6 +1,35 @@
 .restaurants {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 60px;
+  column-gap: 80px;
 }
+
+.cards{
+   width: 300px; 
+   height: 140px;
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+  .restaurants {
+    justify-content: center;
+    gap: 30px;
+  }
+  .cards{
+    width: 300px; 
+    height: 140px;
+ }
+}
+
+@media screen and (min-width:875px) and (max-width:1524px){
+  .cards{
+    width: 247px; 
+    height: 103px;
+ }
+
+ .restaurants {
+  gap: 50px;
+}
+}
+

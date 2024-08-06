@@ -3,18 +3,25 @@ import AdminLayout from '../../../layout/admin/AdminLayout'
 import Subheading from '../../../components/admin/Subheading'
 import useTypeStore from '../../../store/typeStore'
 import ProductItem from '../../../components/admin/ProductItem'
-import { getRestaurantById } from '../../../services/axios'
+import { getProductsFromDB, getRestaurantById } from '../../../services/axios'
 import useCurrentPageStore from '../../../store/currentPageStore'
+import useDeleteModalStore from '../../../store/deleteModalStore/deleteModalStore'
 
 const Products = () => {
   const [restaurant, setRestaurant] = useState({})
   const [products, setProducts] = useState([])
+
+  const { refresh } = useDeleteModalStore();
+  useEffect(() => {
+    getAllProducts()
+  }, [refresh])
 
   const { setCurrentPage } = useCurrentPageStore(state => {
     return state
   })
 
   useEffect(() => {
+    getAllProducts()
     setCurrentPage(2)
   }, [])
 
@@ -23,6 +30,11 @@ const Products = () => {
   })
   const handleClick = () => {
     getRestaurantState()
+  }
+
+  const getAllProducts = async () => {
+    const response = await getProductsFromDB();
+    setProducts(response.data.result.data)
   }
 
   const getProductsByRestaurant = async restaurantId => {

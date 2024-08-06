@@ -28,26 +28,28 @@ const RestaurantItem = ({ restaurants }) => {
     }
   }
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col'>
       <div className={styles.restaurants}>
         {subset.map((restaurant, index) => (
-          <div style={{ width: '300px', height: '140px' }} key={index}>
+          <div className={styles.cards} key={index}>
             <RestaurantCard restaurant={restaurant} />
           </div>
         ))}
       </div>
-      {totalPages > 1 && (
-        <Stack spacing={2} sx={{ marginTop: '70px' }}>
-          <Pagination
-            count={totalPages}
-            color='secondary'
-            sx={main}
-            size='large'
-            style={{ color: 'white' }}
-            onChange={paginated}
-          />
-        </Stack>
-      )}
+      <div className='flex justify-center'>
+        {totalPages > 1 && (
+          <Stack spacing={2} sx={{ marginTop: '70px' }}>
+            <Pagination
+              count={totalPages}
+              color='secondary'
+              sx={main}
+              size='large'
+              style={{ color: 'white' }}
+              onChange={paginated}
+            />
+          </Stack>
+        )}
+      </div>
     </div>
   )
 }
