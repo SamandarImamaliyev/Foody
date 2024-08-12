@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 import React, { useEffect, useState } from 'react';
 import styles from './adminLogin.module.css';
@@ -13,6 +13,7 @@ import { loginUser } from '../../../services/axios'
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 import Head from 'next/head';
+import '../../../public/lang/i18n'
 
 const adminData = {
     email: 'admin@gmail.com',
@@ -61,7 +62,7 @@ const AdminLogin = () => {
                 <div className={`${styles.logoName} ${montserrat.className}`}>Foody<span className='text-orange-400'>.</span></div>
                 <div className='h-[calc(100%-47px)]  sm:h-[calc(100%-99px)] flex sm:justify-center sm:items-center'>
                     <div className={`${styles.adminLogin} flex flex-row`}>
-                        <form onSubmit={() => {
+                        <form onSubmit={(event) => {
                             event.preventDefault();
                             checkValidation(admin)
                         }} className={`${styles.adminLoginForm} ${montserrat.className}  text-center`}>

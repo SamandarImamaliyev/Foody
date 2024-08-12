@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const BASE_URL = 'http://localhost:3000/api';
-let adminToken;
+let token;
 
 const instanceAxios = axios.create({
   baseURL: BASE_URL,
@@ -10,6 +10,26 @@ const instanceAxios = axios.create({
     'Content-Type': 'application/json'
   }
 })
+
+export const loginUser = async (data) => {
+  try {
+    const response = await instanceAxios.post(`/auth/signin`, data);
+    token = response.data.user.access_token;
+    return response
+  } catch (err) {
+    console.log(err)
+    return err.response
+  }
+}
+
+export const registerUser = async (data) => {
+  try {
+    const response = await instanceAxios.post(`/auth/signup`, data);
+    return response
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 export const getRestaurants = async () => {
   try {
@@ -98,7 +118,7 @@ export const getOrders = async () => {
   try {
     const response = await instanceAxios.get(`/order`, {
       headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${token}`,
       },
     })
     return response
@@ -111,16 +131,6 @@ export async function deleteOrderFromDB(data) {
   try {
     const response = await instanceAxios.delete(`/order`, data)
     console.log(response)
-    return response
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-export const loginUser = async (data) => {
-  try {
-    const response = await instanceAxios.post(`/auth/signin`, data);
-    adminToken = response.data.user.access_token;
     return response
   } catch (err) {
     console.log(err)

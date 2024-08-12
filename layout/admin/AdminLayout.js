@@ -4,7 +4,7 @@ import styles from './adminLayout.module.css'
 import Header from '../../components/admin/Header'
 import Sidebar from '../../components/admin/Sidebar'
 import Head from 'next/head'
-import '../../lang/i18n'
+import '../../public/lang/i18n'
 import { useRouter } from 'next/router'
 
 const AdminLayout = ({ children }) => {

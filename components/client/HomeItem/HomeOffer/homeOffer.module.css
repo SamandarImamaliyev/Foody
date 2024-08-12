@@ -1,0 +1,137 @@
+.offerImageContainer{
+    width: 636.81px;
+    height: 676.57px;
+    position: relative;
+}
+
+.offerImageBackground{
+    width: 421.31px;
+    height: 556.74px;
+    border-radius: 50px;
+    rotate: 22.82deg;
+    background: #D63626;
+  
+    
+}
+
+.offerImageBackgroundReverse{
+    width: 421.31px;
+    height: 556.74px;
+    border-radius: 50px;
+    rotate: -22.82deg;
+    background: #D63626;
+    margin-left: 217px;
+}
+
+.offerImage{
+    position: absolute;
+    width: 537.81px;
+    height: 369.15px;
+    top: 95px;
+    right: 159px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.offerImageReverse{
+    position: absolute;
+    width: 537.81px;
+    height: 369.15px;
+    top: 95px;
+    left: 159px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.offerName{
+    width: 653px;
+    height: 155px;
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 70px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #181617;
+
+}
+
+.offerDescription{
+    width: 499px;
+    height: 210px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #828282;
+}
+
+@media screen and (max-width: 1524px){
+        .offerImage{
+            right: 117px;
+        }
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+        .offerName{
+            width: 233px;
+            height: 68px;
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 31px;
+            letter-spacing: 0.03em;
+            text-align: center;
+
+        }
+
+        .offerDescription{
+            width: 291px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: 0.03em;
+            text-align: center;
+
+        }
+
+        .offerImageContainer{
+            width: 282px;
+            height: 307px;
+        
+        }
+
+        .offerImageBackground{
+            width: 187.27px;
+            height: 251.72px;
+            border-radius: 50px;
+            opacity: 0px;
+            rotate: -23.33deg;
+            margin-left: 37px;
+        }
+
+        .offerImageBackgroundReverse{
+            width: 189.48px;
+            height: 249.32px;
+            border-radius: 50px;
+            rotate: 26.46deg;
+            margin-left: 44px;
+        }
+
+        .offerImage{
+            top: 25px;
+            right: 0px;
+            width: 282px;
+            height: 200.18px;
+
+        }
+        
+        .offerImageReverse{
+            top: 25px;
+            left: 0px;
+            width: 282px;
+            height: 200.18px;
+            rotate: 0.63deg;
+
+        }
+
+}

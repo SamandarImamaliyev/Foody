@@ -1,15 +1,15 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './restaurantCard.module.css'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import BorderColorIcon from '@mui/icons-material/BorderColor'
 import DeleteModal from '../../DeleteModal'
 import useTypeStore from '../../../../store/typeStore'
-import { deleteRestaurantById } from '../../../../services/axios'
+import { deleteRestaurantById, getCategoryById } from '../../../../services/axios'
 import toast from 'react-hot-toast'
 
 const RestaurantCard = ({ restaurant }) => {
-  const { stateName } = useTypeStore(state => {
+  const { stateName, setStateName } = useTypeStore(state => {
     return state
   })
   const [activateModal, setActivateModal] = useState(false)
@@ -25,6 +25,17 @@ const RestaurantCard = ({ restaurant }) => {
     }
   }
 
+  const [categoryName, setCategoryName] = useState()
+
+  const getCategory = async () => {
+    const response = await getCategoryById(restaurant.category_id)
+    setCategoryName(response.data.result.data.name)
+  }
+  useEffect(() => {
+    getCategory()
+    setStateName("")
+  }, [])
+
   return (
     <div className={styles.card}>
       <div className={styles.restaurantInfo}>
@@ -37,7 +48,7 @@ const RestaurantCard = ({ restaurant }) => {
         </div>
         <div style={{ width: '150px' }}>
           <div className={styles.restaurantName}>{restaurant.name}</div>
-          <div className={styles.category}>{stateName}</div>
+          <div className={styles.category}>{stateName.trim().length > 0 ? stateName : categoryName}</div>
         </div>
       </div>
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './sidebarPopup.module.css'
-import UploadFile from '../../UploadFile'
 import useShowPopupStore from '../../../../store/showPopupStore'
 import { montserrat, roboto, mukta } from '../../../../helper/font'
 import Image from 'next/image'

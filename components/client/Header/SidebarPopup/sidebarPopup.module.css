@@ -1,0 +1,168 @@
+/* The Modal (background) */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+  }
+  
+  /* Modal Content */
+  .modalContent {
+    position: fixed;
+    left: 0;
+    background-color: #FFFFFF;
+    width: 306px;
+    height: 100vh;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+  }
+  
+  
+  /* The Close Button */
+  .close {
+    width: 16.33px;
+    height: 16.92px;
+    margin-top: 6.04px;
+    margin-left: 5.83px;
+    color: #4F4F4F;
+
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #D63626;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 333ms;
+  }
+  
+  .modalHeader {
+    padding: 2px 16px;
+    display: flex;
+    margin-top: 16px;
+    gap: 15px;
+  }
+
+  .modalHeader div{
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color:  #F5F5F5;
+  }
+  .modalHeader span{
+    color: #fb923c;
+    margin-left: 3px;
+  }
+  .active{
+    color: #D63626;
+  }
+
+  .modalBody>div > div:hover {
+    cursor: pointer;
+    color: #fb923c;
+    transition: 333ms;
+  }
+
+  .modalBody>div{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #828282;
+    display: flex;
+  }
+  .modalBody {
+    padding: 2px 16px;
+    margin-left: 15px;
+    margin-top: 50px;
+  }
+
+  .modalBody>div>div{
+    padding: 8px;
+  }
+  
+  .mobileSignUpButton{
+    width: 127px;
+    height: 41px;
+    border-radius: 30px;
+    background: #D63626;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color: #FFFFFF;
+    margin: auto;
+
+  }
+
+  .mobileSignUpButton:hover{
+    transform: scale(0.97);
+    transition: 333ms;
+  }
+
+  .loggedInUserUsername{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    color: #333333;
+
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes slideIn {
+    right {
+      bottom: 0;
+      opacity: 0;
+    }
+    left {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    right {
+      bottom: 0;
+      opacity: 0;
+    }
+    left {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

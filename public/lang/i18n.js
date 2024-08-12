@@ -24,7 +24,21 @@ const resources = {
             "welcome admin": "Welcome Admin",
             "username": "Username",
             "password": "Password",
-            "sign in": "Sign in"
+            "sign in": "Sign in",
+            // client navbar
+            "navbar home": "Home",
+            "navbar restaurants": "Restaurants",
+            "navbar about us": "About us",
+            "navbar how it works": "How it works",
+            "navbar faqs": "FAQs",
+            "navbar search": "search",
+            "navbar sign up": "Sign up",
+            // mobile navbar
+            "navbar profile": "Profile",
+            "navbar your basket": "Your Basket",
+            "navbar your orders": "Your Orders",
+            "navbar checkout": "Checkout",
+            "navbar logout": "Logout",
         }
     },
     az: {
@@ -49,7 +63,21 @@ const resources = {
             "welcome admin": "Xoş gəldin, Admin",
             "username": "İstifadəçi adı",
             "password": "Şifrə",
-            "sign in": "Daxil olun"
+            "sign in": "Daxil olun",
+            // client navbar
+            "navbar home": "Ana Səhifə",
+            "navbar restaurants": "Restoranlar",
+            "navbar about us": "Haqqımızda",
+            "navbar how it works": "Necə işləyir",
+            "navbar faqs": "FAQs",
+            "navbar search": "axtar",
+            "navbar sign up": "Qeydiyyat",
+            // mobile navbar
+            "navbar profile": "Profiliniz",
+            "navbar your basket": "Səbətiniz",
+            "navbar your orders": "Sifarişləriniz",
+            "navbar checkout": "Checkout",
+            "navbar logout": "Çıxış",
         }
     }
 };

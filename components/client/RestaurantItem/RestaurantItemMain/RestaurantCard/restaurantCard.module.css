@@ -1,0 +1,158 @@
+.restaurantCard{
+    width: 235px;
+    height: 345.27px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.restaurantCard:hover{
+    cursor: pointer;
+    transform: scale(0.98);
+    transition: 333ms;
+}
+
+.newRestaurant {
+    position: absolute;
+    width: 53px;
+    height: 27px;
+    top: 0px;
+    right: 182px;
+    background: #D63626;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14.06px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardImage{
+    width: 174px;
+    height: 161px;
+    margin: 18px 0;
+}
+
+.restaurantName{
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #4F4F4F;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.restaurantCategory{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #828282;
+    height: 85px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+.deliveryPrice{
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-align: left;
+    width: 116px;
+    color: #4F4F4F;
+    display: flex;
+    align-items: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+.deliveryMin{
+    width: 78px;
+    height: 31.38px;
+    border-radius: 30px;
+    background: #D63626;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+@media screen and (min-width:375px) and (max-width:424px){
+    .restaurantCard{
+        width: 131px;
+        height: 212px;
+        
+    }
+
+    .cardImage{
+        width: 112px;
+        height: 88px;
+        margin: 10px 0;
+    }
+
+    .restaurantName{
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        text-align: left;
+    }
+
+    .restaurantCategory{
+        height: 22px;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        text-align: center;
+    
+    }
+
+    .deliveryPrice{
+   
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0.03em;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    
+    }
+
+    .deliveryMin{
+        width: 109.62px;
+        height: 19.27px;
+        border-radius: 30px;
+        background: #D63626;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .newRestaurant {
+        width: 40px;
+        height: 20px;
+        right: 91px;
+        font-size: 11px;
+    }
+ 
+ }
