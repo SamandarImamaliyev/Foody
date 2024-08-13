@@ -4,7 +4,7 @@ import styles from './productItem.module.css'
 import ProductCard from './ProductCard'
 import { Pagination, Stack } from '@mui/material'
 
-const ProductItem = ({ products, restaurant }) => {
+const ProductItem = ({ products }) => {
   const itemsPerPage = 12
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
@@ -30,7 +30,7 @@ const ProductItem = ({ products, restaurant }) => {
       <div className={styles.products}>
         {subset.map((product, index) => (
           <div key={index}>
-            <ProductCard product={product} restaurant={restaurant} />
+            <ProductCard product={product} />
           </div>
         ))}
       </div>

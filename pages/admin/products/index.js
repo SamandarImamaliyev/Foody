@@ -8,10 +8,9 @@ import useCurrentPageStore from '../../../store/currentPageStore'
 import useDeleteModalStore from '../../../store/deleteModalStore/deleteModalStore'
 
 const Products = () => {
-  const [restaurant, setRestaurant] = useState({})
   const [products, setProducts] = useState([])
 
-  const { refresh } = useDeleteModalStore();
+  const { refresh, setRefresh } = useDeleteModalStore();
   useEffect(() => {
     getAllProducts()
   }, [refresh])
@@ -25,7 +24,7 @@ const Products = () => {
     setCurrentPage(2)
   }, [])
 
-  const { getRestaurantState, setStateName, states } = useTypeStore(state => {
+  const { getRestaurantState, setStateName } = useTypeStore(state => {
     return state
   })
   const handleClick = () => {
@@ -38,11 +37,12 @@ const Products = () => {
   }
 
   const getProductsByRestaurant = async restaurantId => {
-    const restaurantData = await getRestaurantById(restaurantId)
-    const restaurant = restaurantData.data.result.data
-    setRestaurant(restaurant)
-    const products = restaurant.products
-    setProducts(products)
+    const productsData = await getProductsFromDB()
+    const products = productsData.data.result.data
+    const filteredProducts = products?.filter(product => {
+      return product.rest_id == restaurantId
+    })
+    setProducts(filteredProducts);
   }
   return (
     <AdminLayout>
@@ -52,7 +52,7 @@ const Products = () => {
         handleClick={handleClick}
         handleSearchByType={getProductsByRestaurant}
       />
-      <ProductItem products={products} restaurant={restaurant} />
+      <ProductItem products={products} />
     </AdminLayout>
   )
 }

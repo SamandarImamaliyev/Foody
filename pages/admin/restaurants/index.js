@@ -37,7 +37,6 @@ const Restaurants = () => {
     getCategoryState()
   }
   const getRestaurantsByCategoryId = async categoryId => {
-    const response = await getCategoryById(categoryId)
     const restaurantsData = await getRestaurants()
     const restaurants = restaurantsData.data.result.data
     const filteredRestaurants = restaurants?.filter(restaurant => {

@@ -1,17 +1,22 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './productCard.module.css'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import BorderColorIcon from '@mui/icons-material/BorderColor'
 import DeleteModal from '../../DeleteModal'
-import { deleteProductById } from '../../../../services/axios'
+import { deleteProductById, getRestaurantById } from '../../../../services/axios'
 import toast from 'react-hot-toast'
+import useTypeStore from '../../../../store/typeStore'
 
-const ProductCard = ({ product, restaurant }) => {
+const ProductCard = ({ product }) => {
   const [activateModal, setActivateModal] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const [productId, setProductId] = useState('')
+
+  const { setStateName, stateName } = useTypeStore(state => {
+    return state
+  })
 
   const deleteProduct = async (id) => {
     const response = await deleteProductById(id);
@@ -21,6 +26,19 @@ const ProductCard = ({ product, restaurant }) => {
       toast.error(response.statusText)
     }
   }
+
+  const [restaurantName, setRestaurantName] = useState()
+
+  const getRestaurant = async () => {
+    console.log("first")
+    const response = await getRestaurantById(product.rest_id)
+    console.log(response.data.result.data.name)
+    setRestaurantName(response.data.result.data.name)
+  }
+  useEffect(() => {
+    getRestaurant()
+    setStateName("")
+  }, [])
 
   return (
     <div className={styles.productCard}>
@@ -32,7 +50,7 @@ const ProductCard = ({ product, restaurant }) => {
             className={styles.productImage}
           />
           <div className={styles.productName}>{product.name}</div>
-          <div className={styles.restaurantName}>{restaurant.name}</div>
+          <div className={styles.restaurantName}>{stateName.trim().length > 0 ? stateName : restaurantName}</div>
         </div>
 
         <div className='flex justify-between'>
