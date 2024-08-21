@@ -60,7 +60,7 @@ const RestaurantItemMain = () => {
                 <Image src={filterImage} width={18} height={12} alt='filter_image' />
                 Filters
             </div>
-            <div className={`flex flex-1 gap-14 sm:ms-[50px] 2xl:ms-[100px]   flex-wrap 2xl:gap-16 ${styles.main}`}>
+            <div className={`flex flex-1 gap-14 sm:ms-[50px]  flex-wrap 2xl:gap-16 ${styles.main}`}>
                 {restaurants.map((restaurant, index) => (
                     <RestaurantCard restaurant={restaurant} key={restaurant.id} />
                 ))}
