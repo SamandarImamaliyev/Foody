@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import styles from './category.module.css'
 import AdminLayout from '../../../layout/admin/AdminLayout'
 import Subheading from '../../../components/admin/Subheading'
 import CategoryItem from '../../../components/admin/CategoryItem'

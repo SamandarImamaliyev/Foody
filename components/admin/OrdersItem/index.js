@@ -3,6 +3,7 @@ import { deleteOrderFromDB } from '../../../services/axios'
 import toast from 'react-hot-toast'
 import useTypeStore from '../../../store/typeStore'
 import AdminTable from '../AdminTable'
+import NoSsr from '../../NoSsr'
 
 const OrdersItem = () => {
 
@@ -24,8 +25,10 @@ const OrdersItem = () => {
   }
   return (
     <div>
-      <AdminTable ID={true} customerID={true} time={true} deliveryAddress={true} amout={true} paymentMethod={true} contact={true} items={states} getAllItems={getOrdersState} deleteItem={deleteOrder} itemId={data}
-        setItemId={setOrderId} />
+      <NoSsr>
+        <AdminTable ID={true} customerID={true} time={true} deliveryAddress={true} amout={true} paymentMethod={true} contact={true} items={states} getAllItems={getOrdersState} deleteItem={deleteOrder} itemId={data}
+          setItemId={setOrderId} />
+      </NoSsr>
     </div>
   )
 }

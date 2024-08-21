@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from 'react'
 import styles from './adminTable.module.css'
 import useDeleteModalStore from '../../../store/deleteModalStore/deleteModalStore'
@@ -6,14 +8,19 @@ import { StyledTableCell, StyledTableRow } from '../StyledTable'
 import DeleteModal from '../DeleteModal'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import BorderColorIcon from '@mui/icons-material/BorderColor'
+import CategoryPopup from '../CategoryItem/CategoryPopup'
+import showCategoryPopupStore from '../../../store/showCategoryPopupStore'
+import OffersPopup from '../OffersItem/OffersPopup'
+import useShowOffersPopupStore from '../../../store/showOffersPopupStore'
 
 const AdminTable = (
     {
+        tableName,
         ID,
         customerID,
         time,
         deliveryAddress,
-        amout,
+        amount,
         paymentMethod,
         contact,
         image,
@@ -32,6 +39,15 @@ const AdminTable = (
 
     const [activateModal, setActivateModal] = useState(false)
     const [openModal, setOpenModal] = useState(false)
+    const [editData, setEditData] = useState(null);
+
+    const { showCategoryPopup, setShowCategoryPopup } = showCategoryPopupStore(state => {
+        return state
+    })
+
+    const { showOffersPopup, setShowOffersPopup } = useShowOffersPopupStore(state => {
+        return state
+    })
 
     const { refresh } = useDeleteModalStore();
 
@@ -81,7 +97,7 @@ const AdminTable = (
                             {customerID && <StyledTableCell>Customer ID</StyledTableCell>}
                             {time && <StyledTableCell>Time</StyledTableCell>}
                             {deliveryAddress && <StyledTableCell>Delivery Address</StyledTableCell>}
-                            {amout && <StyledTableCell>Amount</StyledTableCell>}
+                            {amount && <StyledTableCell>Amount</StyledTableCell>}
                             {paymentMethod && <StyledTableCell>Payment Method</StyledTableCell>}
                             {contact && <StyledTableCell>Contact</StyledTableCell>}
                             <StyledTableCell></StyledTableCell>
@@ -89,7 +105,7 @@ const AdminTable = (
                     </TableHead>
                     <TableBody>
                         {subset.map(row => (
-                            <StyledTableRow key={row.id} hover='true'>
+                            <StyledTableRow key={row.id} hover={true}>
                                 {
                                     ID && <StyledTableCell component='th' scope='row'>
                                         <span className={styles.id}>{row.id}</span>
@@ -127,7 +143,7 @@ const AdminTable = (
                                         {row.delivery_address}
                                     </StyledTableCell>
                                 }
-                                {amout && <StyledTableCell align='right'>{row.amount}</StyledTableCell>}
+                                {amount && <StyledTableCell align='right'>{row.amount}</StyledTableCell>}
                                 {
                                     paymentMethod && <StyledTableCell align='right'>
                                         {row.payment_method}
@@ -137,7 +153,17 @@ const AdminTable = (
                                 <StyledTableCell align='right'>
                                     <div className='flex flex-row justify-end  my-3 me-[5px]'>
                                         <div className={styles.edit}>
-                                            <BorderColorIcon style={{ color: '#00B2A9' }} />
+                                            <BorderColorIcon style={{ color: '#00B2A9' }}
+                                                onClick={() => {
+                                                    if (tableName === "Category") {
+                                                        setShowCategoryPopup(true)
+                                                    } else if (tableName === "Offers") {
+                                                        setShowOffersPopup(true)
+                                                    }
+                                                    setEditData(row)
+                                                    setItemId(row.id)
+                                                }}
+                                            />
                                         </div>
                                         <div className={styles.delete}>
                                             <DeleteForeverIcon
@@ -171,6 +197,8 @@ const AdminTable = (
                 )}
             </div>
             {activateModal && <DeleteModal id={itemId} deleteItem={deleteItem} openModal={openModal} />}
+            {showCategoryPopup && <CategoryPopup editData={editData} setEditData={setEditData} />}
+            {showOffersPopup && <OffersPopup editData={editData} setEditData={setEditData} />}
         </div>
     )
 }

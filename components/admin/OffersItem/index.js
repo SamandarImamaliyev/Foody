@@ -5,6 +5,8 @@ import AdminTable from '../AdminTable'
 import useTypeStore from '../../../store/typeStore'
 import { deleteOfferById } from '../../../services/axios'
 import toast from 'react-hot-toast'
+import NoSsr from '../../NoSsr'
+import { errorMessajeContainer, succesMessajeContainer } from '../../../helper/toastMessageContainer'
 
 const OffersItem = () => {
 
@@ -16,15 +18,17 @@ const OffersItem = () => {
   const deleteOffer = async (id) => {
     const response = await deleteOfferById(id);
     if (response.status == 204) {
-      toast.success("Offer successfully deleted")
+      toast.success("Offer successfully deleted", succesMessajeContainer)
     } else {
-      toast.error(response.statusText)
+      toast.error(response.statusText, errorMessajeContainer)
     }
   }
   return (
     <div>
-      <AdminTable ID={true} image={true} title={true} description={true} items={states} getAllItems={getOffersState} deleteItem={deleteOffer} itemId={offerId}
-        setItemId={setOfferId} />
+      <NoSsr>
+        <AdminTable tableName={"Offers"} ID={true} image={true} title={true} description={true} items={states} getAllItems={getOffersState} deleteItem={deleteOffer} itemId={offerId}
+          setItemId={setOfferId} />
+      </NoSsr>
     </div>
   )
 }

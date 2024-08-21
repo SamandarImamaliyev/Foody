@@ -8,37 +8,49 @@ import DeleteModal from '../../DeleteModal'
 import { deleteProductById, getRestaurantById } from '../../../../services/axios'
 import toast from 'react-hot-toast'
 import useTypeStore from '../../../../store/typeStore'
+import useShowPopupStore from '../../../../store/showPopupStore'
+import useEditDataStore from '../../../../store/editDataStore/editDataStore'
+import { errorMessajeContainer, succesMessajeContainer } from '../../../../helper/toastMessageContainer'
+import useDeleteModalStore from '../../../../store/deleteModalStore/deleteModalStore'
 
 const ProductCard = ({ product }) => {
   const [activateModal, setActivateModal] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const [productId, setProductId] = useState('')
 
+  const { editData, setEditData } = useEditDataStore(state => {
+    return state;
+  })
+
   const { setStateName, stateName } = useTypeStore(state => {
     return state
   })
 
+  const { setShowEditProductPopup } = useShowPopupStore(state => {
+    return state
+  })
+  const { refresh, setRefresh } = useDeleteModalStore();
+
   const deleteProduct = async (id) => {
     const response = await deleteProductById(id);
     if (response.status == 204) {
-      toast.success("Product successfully deleted")
+      toast.success("Product successfully deleted", succesMessajeContainer)
+      setRefresh(!refresh)
     } else {
-      toast.error(response.statusText)
+      toast.error(response.statusText, errorMessajeContainer)
     }
   }
 
   const [restaurantName, setRestaurantName] = useState()
 
   const getRestaurant = async () => {
-    console.log("first")
     const response = await getRestaurantById(product.rest_id)
-    console.log(response.data.result.data.name)
     setRestaurantName(response.data.result.data.name)
   }
   useEffect(() => {
     getRestaurant()
     setStateName("")
-  }, [])
+  }, [refresh])
 
   return (
     <div className={styles.productCard}>
@@ -57,7 +69,10 @@ const ProductCard = ({ product }) => {
           <span className={styles.price}>${product.price}</span>
           <div className='flex gap-2'>
             <div className={styles.edit}>
-              <BorderColorIcon style={{ color: '#00B2A9' }} />
+              <BorderColorIcon style={{ color: '#00B2A9' }} onClick={() => {
+                setEditData(product)
+                setShowEditProductPopup(true)
+              }} />
             </div>
             <div className={styles.delete}>
               <DeleteForeverIcon

@@ -31,6 +31,8 @@ export const registerUser = async (data) => {
   }
 }
 
+// admin restaurant
+
 export const getRestaurants = async () => {
   try {
     const response = await instanceAxios.get('/restuarants')
@@ -52,7 +54,15 @@ export const getRestaurantById = async id => {
 export const addRestaurantToDB = async (data) => {
   try {
     const response = await instanceAxios.post(`/restuarants`, data);
-    console.log(response)
+    return response
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const updateRestaurant = async (id, data) => {
+  try {
+    const response = await instanceAxios.put(`/restuarants/${id}`, data);
     return response
   } catch (err) {
     console.log(err)
@@ -113,6 +123,15 @@ export const postCategory = async (data) => {
   }
 }
 
+export const updateCategory = async (id, data) => {
+  try {
+    const response = await instanceAxios.put(`/category/${id}`, data)
+    return response
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 
 export const getOrders = async () => {
   try {
@@ -154,6 +173,14 @@ export const getProductsFromDB = async () => {
     console.log(err)
   }
 }
+export const updateProduct = async (id, data) => {
+  try {
+    const response = await instanceAxios.put(`/products/${id}`, data)
+    return response
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 export async function deleteProductById(id) {
   try {
@@ -183,6 +210,15 @@ export const postOffer = async (data) => {
 export const getOffersFromDB = async () => {
   try {
     const response = await instanceAxios.get('/offer')
+    return response
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const updateOffer = async (id, data) => {
+  try {
+    const response = await instanceAxios.put(`/offer/${id}`, data);
     return response
   } catch (err) {
     console.log(err)

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import styles from './offers.module.css'
 import useCurrentPageStore from '../../../store/currentPageStore'
 import AdminLayout from '../../../layout/admin/AdminLayout'
 import Subheading from '../../../components/admin/Subheading'

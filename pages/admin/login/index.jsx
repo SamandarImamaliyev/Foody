@@ -5,7 +5,7 @@ import styles from './adminLogin.module.css';
 import { montserrat, roboto, mukta } from '../../../helper/font'
 import Image from 'next/image';
 import adminLoginImage from '../../../public/image/admin/adminLogin/adminLogin.svg'
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 import useSetLanguageStore from '../../../store/setLanguageStore';
 import enIcon from '../../../public/image/langs/en.svg'
 import azIcon from '../../../public/image/langs/az.svg'
@@ -14,6 +14,7 @@ import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 import Head from 'next/head';
 import '../../../public/lang/i18n'
+import { Box, LinearProgress } from '@mui/material';
 
 const adminData = {
     email: 'admin@gmail.com',
@@ -23,6 +24,7 @@ const adminData = {
 const AdminLogin = () => {
     const { t } = useTranslation();
     const router = useRouter();
+    const [signIn, setSignIn] = useState(false);
 
     const [admin, setAdmin] = useState({
         username: '',
@@ -40,7 +42,17 @@ const AdminLogin = () => {
             localStorage.setItem('password', '123456');
             router.push(`/admin`);
         } else {
-            toast.error("Incorrect username or password")
+            setSignIn(false)
+            toast.error("Incorrect username or password",
+                {
+                    icon: '🧨',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#C035A2',
+                        color: '#fff',
+                    },
+                }
+            )
         }
     }
 
@@ -64,6 +76,7 @@ const AdminLogin = () => {
                     <div className={`${styles.adminLogin} flex flex-row`}>
                         <form onSubmit={(event) => {
                             event.preventDefault();
+                            setSignIn(true)
                             checkValidation(admin)
                         }} className={`${styles.adminLoginForm} ${montserrat.className}  text-center`}>
                             <p>
@@ -76,7 +89,16 @@ const AdminLogin = () => {
                                 setAdmin({ ...admin, password: e.target.value })
                             }} />
                             <button type='submit' className={`${roboto.className}`} >
-                                {t("sign in")}
+                                {signIn ?
+                                    <Box sx={{ width: '100%' }}>
+                                        <LinearProgress sx={{
+                                            backgroundColor: 'transparent',
+                                            '& .MuiLinearProgress-bar': {
+                                                backgroundColor: '#ffffff'
+                                            }
+                                        }} />
+                                    </Box>
+                                    : t("sign in")}
                             </button>
                         </form>
                         <div className={`bg-[#FFFEFE] flex justify-center ${styles.image}`}>

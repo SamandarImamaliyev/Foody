@@ -4,10 +4,12 @@ import React, { useState } from 'react'
 import styles from './type.module.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import useTypeStore from '../../../../store/typeStore'
+import useDeleteModalStore from '../../../../store/deleteModalStore/deleteModalStore'
 
 const Type = ({ type, handleClick, handleSearchByType }) => {
   const [searchText, setSearchText] = useState('')
   const [popUp, setPopUp] = useState(false)
+  const { refresh, setRefresh } = useDeleteModalStore();
 
   const { states, setStateName } = useTypeStore(state => {
     return state
@@ -36,20 +38,37 @@ const Type = ({ type, handleClick, handleSearchByType }) => {
         className={`flex flex-col rounded-[14px] bg-white mt-1 pt-1 overflow-x-hidden overflow-y-auto h-[300px] ${styles.scrollbarForType}`}
       >
         {popUp &&
-          states?.map((state, index) => (
-            <button
-              key={index}
-              className='bg-white w-[159px]  sm:w-[190px] p-2 hover:bg-[#5a5b70] hover:text-[#f2f2f2]'
-              onClick={() => {
-                handleSearchByType(state.id)
-                setSearchText(state.name)
-                setPopUp(false)
-                setStateName(state.name)
-              }}
-            >
-              {state.name}
-            </button>
-          ))}
+          (
+            <>
+              <button
+                className="bg-white w-[190px] p-2 hover:bg-[#5a5b70] hover:text-[#f2f2f2] font-bold"
+                onClick={() => {
+                  setPopUp(false)
+                  setSearchText(type + ' type')
+                  setRefresh(!refresh)
+                }}
+              >
+                All
+              </button>
+              {
+                states?.map((state, index) => (
+                  <button
+                    key={index}
+                    className='bg-white w-[159px]  sm:w-[190px] p-2 hover:bg-[#5a5b70] hover:text-[#f2f2f2]'
+                    onClick={() => {
+                      handleSearchByType(state.id)
+                      setSearchText(state.name)
+                      setPopUp(false)
+                      setStateName(state.name)
+                    }}
+                  >
+                    {state.name}
+                  </button>
+                ))
+              }
+            </>
+          )
+        }
       </div>
     </div>
   )
