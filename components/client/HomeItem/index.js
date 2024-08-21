@@ -15,6 +15,7 @@ import useTypeStore from '../../../store/typeStore'
 import Image from 'next/image'
 import footerLeftImage from '../../../public/image/client/footerLeftImage.svg'
 import footerRightImage from '../../../public/image/client/footerRightImage.svg'
+import mainBurgerImage from '../../../public/image/client/mainBurger.svg'
 
 const HomeItem = () => {
     const { getOffersState, states } = useTypeStore(state => {
@@ -36,7 +37,7 @@ const HomeItem = () => {
                     </div>
                 </div>
                 <div >
-                    <img className=' rounded-[100px]' src='https://s3-alpha-sig.figma.com/img/5f22/e6c0/a42d9c1787a860dae90a7daff05e77c5?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nKHXFbFtVsq-YHdTiJvmedZFD5UMssmgPOv07zucC~qI4d1-d5GlDELM9fOErxuRVPnw4nf1glvp-sXaXHnq-dR3AstA2UEe8yB56llb2QE4v2TvDnYoE~nYRj~Q9zrCy5UUMSIjrzLypKuNkcbqUb~ULdTVRAXCj5g9KeL29SNWENAitvyQzQ~2AbO3hKEeAbeQ~Lp0je~rpwjkNuTWhf6~wF4wXU6sXDysocwPZVbhZk~dfsGwj7KpR4oFPujQ0lEggTU4QbjMSeRO46eFQOmh5-qIdcoAJ2Z0hokpTpqO9rRX2CLnemzU8UeUg3QeadXfWDk1uYkCFnZ5L7UcSg__' />
+                    <Image width={0} height={0} className=' rounded-[100px]' src={mainBurgerImage} />
                 </div>
             </div>
             <div className='flex flex-col items-center'>
