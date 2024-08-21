@@ -4,9 +4,9 @@
   gap: 50px;
 }
 
-@media screen and (max-width:1534px){
+@media screen and (max-width:1566px){
   .products {
-  column-gap: 125px;
+  column-gap: 100px;
   }
 }
 

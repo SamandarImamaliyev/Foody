@@ -157,7 +157,7 @@ const RestaurantPopup = ({ editData, setEditData }) => {
                   {t("add your restaurant information")}
                 </div>
                 <div className={styles.info}>
-                  <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                  <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                     <label htmlFor='name' > {t("name")}</label>
                     <input value={editData ? editData.name : data.name} type='text' id='name'
                       onChange={(e) => {
@@ -169,7 +169,7 @@ const RestaurantPopup = ({ editData, setEditData }) => {
                     />
                   </div>
 
-                  <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                  <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                     <label htmlFor='desc'>{t("cuisine")}</label>
                     <textarea value={editData ? editData.cuisine : data.cuisine} type='text' id='desc' style={{ height: '133px' }}
                       onChange={(e) => {
@@ -181,7 +181,7 @@ const RestaurantPopup = ({ editData, setEditData }) => {
                     />
                   </div>
 
-                  <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                  <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                     <label htmlFor='price'>{t("delivery price")} $</label>
                     <input type='text' id='price' value={editData ? editData.delivery_price : data.delivery_price} onChange={(e) => {
                       editData ?
@@ -190,7 +190,7 @@ const RestaurantPopup = ({ editData, setEditData }) => {
                         setData({ ...data, delivery_price: e.target.value })
                     }} />
                   </div>
-                  <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                  <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                     <label htmlFor='minute'>{t("delivery minute")}</label>
                     <input type='text' id='minute' value={editData ? editData.delivery_min : data.delivery_min}
                       onChange={(e) => {
@@ -200,7 +200,7 @@ const RestaurantPopup = ({ editData, setEditData }) => {
                           setData({ ...data, delivery_min: e.target.value })
                       }} />
                   </div>
-                  <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                  <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                     <label htmlFor='address'>{t("address")}</label>
                     <input type='text' id='address' value={editData ? editData.address : data.address}
                       onChange={(e) => {
@@ -210,7 +210,7 @@ const RestaurantPopup = ({ editData, setEditData }) => {
                           setData({ ...data, address: e.target.value })
                       }} />
                   </div>
-                  <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                  <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                     <label htmlFor='restaurant'>{t("category")}</label>
                     <select id='restaurant' className={styles.select} onChange={(e) => {
                       editData ?

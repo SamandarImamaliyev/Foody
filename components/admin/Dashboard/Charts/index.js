@@ -42,7 +42,7 @@ const PieChart = () => {
       },
       responsive: [
         {
-          breakpoint: 1520,
+          breakpoint: 1566,
           options: {
             chart: {
               width: 400,
@@ -119,7 +119,7 @@ const SalaryChart = () => {
       },
       responsive: [
         {
-          breakpoint: 1520,
+          breakpoint: 1566,
           options: {
             chart: {
               width: 500,

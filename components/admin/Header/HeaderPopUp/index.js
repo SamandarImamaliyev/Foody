@@ -151,7 +151,7 @@ const HeaderPopUp = ({ editData, setEditData }) => {
                     {t("product desc")}
                   </div>
                   <div className={styles.info}>
-                    <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                    <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                       <label htmlFor='name'>{t("name")}</label>
                       <input value={editData ? editData.name : data.name} type='text' id='name' onChange={(e) => {
                         editData ?
@@ -161,7 +161,7 @@ const HeaderPopUp = ({ editData, setEditData }) => {
                       }} />
                     </div>
 
-                    <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                    <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                       <label htmlFor='desc'>{t("description")}</label>
                       <textarea value={editData ? editData.description : data.description} type='text' id='desc' style={{ height: '133px' }} onChange={(e) => {
                         editData ?
@@ -171,7 +171,7 @@ const HeaderPopUp = ({ editData, setEditData }) => {
                       }} />
                     </div>
 
-                    <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                    <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                       <label htmlFor='price'>{t("price")}</label>
                       <input type='text' id='price' value={editData ? editData.price : data.price} onChange={(e) => {
                         editData ?
@@ -180,7 +180,7 @@ const HeaderPopUp = ({ editData, setEditData }) => {
                           setData({ ...data, price: e.target.value })
                       }} />
                     </div>
-                    <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                    <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                       <label htmlFor='restaurant'>{t("restaurant")}</label>
                       <select id='restaurant' className={styles.select} onChange={(e) => {
                         editData ?

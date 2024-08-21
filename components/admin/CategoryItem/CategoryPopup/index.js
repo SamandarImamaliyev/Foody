@@ -124,7 +124,7 @@ const CategoryPopup = ({ editData, setEditData }) => {
                   {t("category information")}
                 </div>
                 <div className={styles.info}>
-                  <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                  <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                     <label htmlFor='name'> {t("category name")}</label>
                     <input type='text' id='name' value={editData ? editData.name : data.name} onChange={(e) => {
                       editData ?

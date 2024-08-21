@@ -127,7 +127,7 @@ const OffersPopup = ({ editData, setEditData }) => {
                                         {t("add your offer info")}
                                     </div>
                                     <div className={styles.info}>
-                                        <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                                        <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                                             <label htmlFor='name'> {t("title")}</label>
                                             <input type='text' id='name' value={editData ? editData.name : data.name} onChange={(e) => {
                                                 editData ?
@@ -137,7 +137,7 @@ const OffersPopup = ({ editData, setEditData }) => {
                                             }}
                                             />
                                         </div>
-                                        <div className='flex flex-col w-[276px] sm:w-[474px] 2xl:w-[546px]'>
+                                        <div className='flex flex-col w-[276px] sm:w-[474px] 3xl:w-[546px]'>
                                             <label htmlFor='desc'>{t("description")}</label>
                                             <textarea value={editData ? editData.description : data.description} type='text' id='desc' placeholder={`${editData ? editData.description : ""}`} style={{ height: '133px' }}
                                                 onChange={(e) => {
