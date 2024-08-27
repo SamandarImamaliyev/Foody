@@ -18,14 +18,22 @@ import headerBasket from '../../../public/image/client/headerBasket.svg'
 import useCurrentPageStore from '../../../store/currentPageStore';
 
 const Header = () => {
+
     const { t } = useTranslation();
-    const { currentUser } = currentUserStore();
+    const { currentUser, setCurrentUser } = currentUserStore();
     const [showProfileModal, setShowProfileModal] = useState(false);
     const [userToken, setUserToken] = useState(null);
     const { currentPage, setCurrentPage } = useCurrentPageStore();
 
-
     useEffect(() => {
+        setTimeout(() => {
+            if (currentUser) {
+                router.push(`/login`);
+                setCurrentUser(null)
+                localStorage.clear();
+            }
+        }, 1000 * 60 * 60)
+
         if (typeof window !== 'undefined') {
             const user = JSON.parse(localStorage.getItem('user'))
             setUserToken(user)
@@ -155,8 +163,8 @@ const Header = () => {
                                     <div onClick={() => { setShowProfileModal(!showProfileModal) }}>Checkout</div>
                                     <div onClick={() => {
                                         localStorage.clear();
-                                        router.push(`/login`)
-                                        setShowProfileModal(!showProfileModal)
+                                        router.push(`/login`);
+                                        setShowProfileModal(!showProfileModal);
                                     }}
                                     >Logout</div>
                                 </div>

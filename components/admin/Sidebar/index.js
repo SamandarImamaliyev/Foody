@@ -154,7 +154,7 @@ const Sidebar = () => {
         <div
           className={`${currentPage === 8 ? styles.active : ''}`}
           onClick={() => {
-            localStorage.clear();
+            sessionStorage.clear();
             redirect('login')
           }}
         >

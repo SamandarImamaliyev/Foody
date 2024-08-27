@@ -39,3 +39,16 @@ input[type='number'] {
 textarea {
   resize: none;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 180px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d63626;
+  border-radius: 180px;
+}

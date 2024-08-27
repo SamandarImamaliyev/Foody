@@ -1,0 +1,73 @@
+.restaurantName{
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #4F4F4F;
+
+}
+
+.restaurantAddress{
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #828282;
+
+}
+
+.cuisineHeading{
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #828282;
+
+}
+
+.cuisine{
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #828282;
+
+}
+
+.button{
+    width: 72px;
+    height: 52px;
+    border-radius: 5px;
+    background: #D63626;
+    border: 1px solid #D63626;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+
+.button:hover{
+    transform: scale(0.97);
+    transition: 333ms;
+}
+
+.price{
+    width: 72px;
+    height: 51px;
+    border-radius: 5px;
+    border: 1px solid #D63626;
+    background: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #D63626;
+    padding-left: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}

@@ -1,9 +1,18 @@
+"use client"
+
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect } from 'react'
 import ClientLayout from '../../layout/client/ClientLayout'
 import RestaurantItem from '../../components/client/RestaurantItem'
+import useRestaurantStore from '../../store/restaurantStore'
 
 const Restaurant = () => {
+    const { restaurant, setRestaurant } = useRestaurantStore(state => {
+        return state
+    });
+    useEffect(() => {
+        setRestaurant(null)
+    }, [])
     return (
         <div>
             <Head>

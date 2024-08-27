@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from 'react'
 import styles from './userLogin.module.css'
 import Image from 'next/image';
@@ -13,8 +15,14 @@ import { loginUser, registerUser } from '../../services/axios'
 import { useRouter } from 'next/router';
 import currentUserStore from '../../store/currentUserStore';
 import back from '../../public/image/admin/sidebar/back.svg'
+import useBasketStore from '../../store/basketStore/basketStore';
+import { errorMessajeContainer, succesMessajeContainer } from '../../helper/toastMessageContainer'
+import { useTranslation } from 'react-i18next';
+import '../../public/lang/i18n'
 
 const UserLogin = () => {
+
+    const { t } = useTranslation();
 
     const [showLang, setShowLang] = useState(false);
     const [active, setActive] = useState(1);
@@ -56,39 +64,48 @@ const UserLogin = () => {
     }
     const register = async (registeredUser) => {
         if (registeredUser.fullName.trim().length < 3) {
-            toast.error("Full name must contain three letters at least")
+            toast.error("Full name must contain three letters at least", errorMessajeContainer)
         } else if (registeredUser.username.trim().length < 3) {
-            toast.error("Username must contain three letters at least")
+            toast.error("Username must contain three letters at least", errorMessajeContainer)
         } else if (registeredUser.email.trim().length < 3 || validateEmail(registeredUser.email)) {
-            toast.error("Invalid email address")
+            toast.error("Invalid email address", errorMessajeContainer)
         } else if (registeredUser.password.trim().length < 10) {
-            toast.error("Password must contain at least ten character")
+            toast.error("Password must contain at least ten character", errorMessajeContainer)
         } else {
             const response = await registerUser(registeredUser);
             if (response?.status === 201) {
-                toast.success("User successfully registered")
+                toast.success("User successfully registered", succesMessajeContainer)
+                setRegisteredUser({
+                    fullName: "",
+                    username: "",
+                    email: "",
+                    password: ""
+                })
                 setActive(1)
             } else {
-                toast.error("Something went wrong")
+                toast.error("Something went wrong", errorMessajeContainer)
             }
         }
     }
 
+    const { getBasketState } = useBasketStore();
+
     const login = async (loggedInUser) => {
         if (loggedInUser.email.trim().length < 3) {
-            toast.error("Email must contain three letters at least")
+            toast.error("Email must contain three letters at least", errorMessajeContainer)
         } else if (loggedInUser.password.trim().length < 10) {
-            toast.error("Password must contain at least ten character")
+            toast.error("Password must contain at least ten character", errorMessajeContainer)
         } else {
             const response = await loginUser(loggedInUser);
             localStorage.setItem('user', JSON.stringify(response.data.user));
             setCurrentUser(response.data.user)
             if (response.status === 200) {
-                toast.success("Successfully logged in")
+                toast.success("Successfully logged in", succesMessajeContainer)
+                getBasketState();
                 setShowSidebarModal(false)
-                router.push("/")
+                router.back();
             } else {
-                toast.error(response.data.error)
+                toast.error(response.data.error, errorMessajeContainer)
             }
         }
     }
@@ -151,44 +168,44 @@ const UserLogin = () => {
                         {active === 1 ?
                             <div>
                                 <div className={`flex justify-center gap-8 my-[100px] ${styles.heading}`}>
-                                    <div className={`${active === 1 ? styles.active : ""}`} onClick={() => { setActive(1) }}>Login</div>
-                                    <div className={`${active === 2 ? styles.active : ""}`} onClick={() => { setActive(2) }}>Register</div>
+                                    <div className={`${active === 1 ? styles.active : ""}`} onClick={() => { setActive(1) }}>{t("login")}</div>
+                                    <div className={`${active === 2 ? styles.active : ""}`} onClick={() => { setActive(2) }}>{t("register")}</div>
                                 </div>
                                 <div className='flex flex-col gap-3'>
-                                    <label htmlFor='email' >Email</label>
+                                    <label htmlFor='email' >{t("email")}</label>
                                     <input value={loggedInUser.email} type='text' id='email' onChange={(e) => { setLoggedInUser({ ...loggedInUser, email: e.target.value }) }} />
                                 </div>
                                 <div className='flex flex-col gap-3 mt-5'>
-                                    <label htmlFor='password' >Password</label>
+                                    <label htmlFor='password' >{t("password")}</label>
                                     <input type='password' id='password' value={loggedInUser.password} onChange={(e) => { setLoggedInUser({ ...loggedInUser, password: e.target.value }) }} />
                                 </div>
                                 <div>
-                                    <button>Log in</button>
+                                    <button>{t("log in")}</button>
                                 </div>
                             </div> :
                             <div>
                                 <div className={`flex justify-center gap-8 my-[100px] ${styles.heading}`}>
-                                    <div className={`${active === 1 ? styles.active : ""}`} onClick={() => { setActive(1) }}>Login</div>
-                                    <div className={`${active === 2 ? styles.active : ""}`} onClick={() => { setActive(2) }}>Register</div>
+                                    <div className={`${active === 1 ? styles.active : ""}`} onClick={() => { setActive(1) }}>{t("login")}</div>
+                                    <div className={`${active === 2 ? styles.active : ""}`} onClick={() => { setActive(2) }}>{t("register")}</div>
                                 </div>
                                 <div className='flex flex-col gap-3'>
-                                    <label htmlFor='fullName' >Full Name</label>
+                                    <label htmlFor='fullName' >{t("full name")}</label>
                                     <input type='text' id='fullName' value={registeredUser.fullName} onChange={(e) => { setRegisteredUser({ ...registeredUser, fullName: e.target.value }) }} />
                                 </div>
                                 <div className='flex flex-col gap-3 mt-5'>
-                                    <label htmlFor='username' >Username</label>
+                                    <label htmlFor='username' >{t("username")}</label>
                                     <input type='text' id='username' value={registeredUser.username} onChange={(e) => { setRegisteredUser({ ...registeredUser, username: e.target.value }) }} />
                                 </div>
                                 <div className='flex flex-col gap-3 mt-5'>
-                                    <label htmlFor='email' >Email</label>
+                                    <label htmlFor='email' >{t("email")}</label>
                                     <input type='text' id='email' value={registeredUser.email} onChange={(e) => { setRegisteredUser({ ...registeredUser, email: e.target.value }) }} />
                                 </div>
                                 <div className='flex flex-col gap-3 mt-5'>
-                                    <label htmlFor='password' >Password</label>
+                                    <label htmlFor='password' >{t("password")}</label>
                                     <input type='password' id='password' value={registeredUser.password} onChange={(e) => { setRegisteredUser({ ...registeredUser, password: e.target.value }) }} />
                                 </div>
                                 <div>
-                                    <button>Register</button>
+                                    <button>{t("login")}</button>
                                 </div>
                             </div>
                         }

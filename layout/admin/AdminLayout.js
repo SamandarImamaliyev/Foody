@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './adminLayout.module.css'
 import Header from '../../components/admin/Header'
 import Sidebar from '../../components/admin/Sidebar'
@@ -9,15 +9,12 @@ import { useRouter } from 'next/router'
 
 const AdminLayout = ({ children }) => {
   const router = useRouter();
-  if (typeof window !== "undefined") {
-    window.onbeforeunload = function () {
-      localStorage.clear();
-    }
 
-    if (localStorage.getItem('username') != 'admin' || localStorage.getItem('password') != '123456') {
+  useEffect(() => {
+    if (sessionStorage.getItem('username') != 'admin' || sessionStorage.getItem('password') != '123456') {
       router.push(`/admin/login`)
     }
-  }
+  }, [])
 
 
   return (

@@ -38,8 +38,8 @@ const AdminLogin = () => {
 
         if (admin.username.trim() === "admin" && admin.password.trim() === "123456") {
             const response = await loginUser(adminData);
-            localStorage.setItem('username', 'admin');
-            localStorage.setItem('password', '123456');
+            sessionStorage.setItem('username', 'admin');
+            sessionStorage.setItem('password', '123456');
             router.push(`/admin`);
         } else {
             setSignIn(false)

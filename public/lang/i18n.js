@@ -60,6 +60,12 @@ const resources = {
             "navbar faqs": "FAQs",
             "navbar search": "search",
             "navbar sign up": "Sign up",
+            // client login
+            "login": "Login",
+            "register": "Register",
+            "email": "Email",
+            "log in": "Log in",
+            "full name": "Full Name",
             // mobile navbar
             "navbar profile": "Profile",
             "navbar your basket": "Your Basket",
@@ -126,6 +132,12 @@ const resources = {
             "navbar faqs": "FAQs",
             "navbar search": "axtar",
             "navbar sign up": "Qeydiyyat",
+            // client login
+            "login": "Daxil ol",
+            "register": "Qeydiyyat",
+            "email": "Email",
+            "log in": "Daxil ol",
+            "full name": "Tam ad",
             // mobile navbar
             "navbar profile": "Profiliniz",
             "navbar your basket": "Səbətiniz",

@@ -1,0 +1,20 @@
+.restaurantProducts{
+    width: 846px;
+    height: 961px;
+    border-radius: 4px;
+    background: #F3F4F6;
+    margin-left: 56px;
+
+}
+
+.heading{
+    height: 99px;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #4F4F4F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

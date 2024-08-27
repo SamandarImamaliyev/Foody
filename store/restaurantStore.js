@@ -7,6 +7,11 @@ const useRestaurantStore = create((set, get) => {
             set(state => {
                 return { restaurants: [...newValue] }
             }),
+        restaurant: null,
+        setRestaurant: newValue =>
+            set(state => {
+                return { restaurant: newValue }
+            }),
         // editData: null,
         // setEditData: newData =>
         //     set(state => {
