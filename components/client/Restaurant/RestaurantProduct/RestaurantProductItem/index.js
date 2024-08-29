@@ -21,17 +21,17 @@ const RestaurantProductItem = ({ product }) => {
 
     return (
         <div className={styles.item}>
-            <div className='flex gap-5 w-[520px]'>
-                <div>
+            <div className='flex sm:gap-5 gap-2 sm:w-[520px] w-[260px] items-center '>
+                <div className=' w-[22px] sm:w-[57px] sm:h-[53px]'>
                     <img className={styles.image} src={product.img_url} />
                 </div>
-                <div>
+                <div className='w-[230px]'>
                     <div className={styles.name}>{product.name}</div>
                     <div className={styles.description}>{product.description}</div>
                 </div>
             </div>
-            <div className='flex'>
-                <div className='flex items-center w-[111px]'>
+            <div className='flex flex-col sm:flex-row items-center gap-1 sm:gap-0'>
+                <div className='flex items-center sm:justify-normal justify-center  w-[55px] sm:w-[111px]'>
                     <div className={styles.from}>From</div>
                     <div className={styles.price}>${product.price}</div>
                 </div>

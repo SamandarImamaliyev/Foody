@@ -100,7 +100,7 @@ export const getCategoryById = async id => {
 
 export async function deleteCategoryById(id) {
   try {
-    // let item = localStorage.getItem('userInfo')
+    // let item = sessionStorage.getItem('userInfo')
     // let accessToken = JSON.parse(item)
     // const token = accessToken.access_token
     const response = await instanceAxios.delete(`/category/${id}`, {
@@ -184,7 +184,7 @@ export const updateProduct = async (id, data) => {
 
 export async function deleteProductById(id) {
   try {
-    // let item = localStorage.getItem('userInfo')
+    // let item = sessionStorage.getItem('userInfo')
     // let accessToken = JSON.parse(item)
     // const token = accessToken.access_token
     const response = await instanceAxios.delete(`/products/${id}`, {
@@ -239,7 +239,7 @@ export async function deleteOfferById(id) {
 
 export async function getBasket() {
   try {
-    let item = JSON.parse(localStorage.getItem('user'))
+    let item = JSON.parse(sessionStorage.getItem('user'))
     let token = item.access_token;
     const response = await instanceAxios.get(`/basket/`, {
       headers: {
@@ -254,7 +254,7 @@ export async function getBasket() {
 
 export async function addToBasket(id) {
   try {
-    let item = JSON.parse(localStorage.getItem('user'))
+    let item = JSON.parse(sessionStorage.getItem('user'))
     let token = item.access_token;
     const response = await instanceAxios.post(`/basket/add`, {
       product_id: id,
@@ -274,7 +274,7 @@ export async function addToBasket(id) {
 
 export async function deleteProductFromBasketById(id) {
   try {
-    let item = JSON.parse(localStorage.getItem('user'))
+    let item = JSON.parse(sessionStorage.getItem('user'))
     let token = item.access_token;
 
     const response = await instanceAxios.delete(`/basket/delete`, {
@@ -294,7 +294,7 @@ export async function deleteProductFromBasketById(id) {
 
 export async function clearBasket(id) {
   try {
-    let item = JSON.parse(localStorage.getItem('user'))
+    let item = JSON.parse(sessionStorage.getItem('user'))
     let token = item.access_token;
 
     const response = await instanceAxios.delete(`/basket/clear`, {

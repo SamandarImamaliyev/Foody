@@ -30,12 +30,13 @@ const Header = () => {
             if (currentUser) {
                 router.push(`/login`);
                 setCurrentUser(null)
-                localStorage.clear();
+                sessionStorage.clear();
             }
         }, 1000 * 60 * 60)
 
         if (typeof window !== 'undefined') {
-            const user = JSON.parse(localStorage.getItem('user'))
+            const user = JSON.parse(sessionStorage.getItem('user'))
+            setCurrentUser(user);
             setUserToken(user)
         }
     }, [])
@@ -162,7 +163,7 @@ const Header = () => {
                                     <div onClick={() => { setShowProfileModal(!showProfileModal) }}>Your Orders</div>
                                     <div onClick={() => { setShowProfileModal(!showProfileModal) }}>Checkout</div>
                                     <div onClick={() => {
-                                        localStorage.clear();
+                                        sessionStorage.clear();
                                         router.push(`/login`);
                                         setShowProfileModal(!showProfileModal);
                                     }}

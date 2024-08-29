@@ -97,7 +97,7 @@ const UserLogin = () => {
             toast.error("Password must contain at least ten character", errorMessajeContainer)
         } else {
             const response = await loginUser(loggedInUser);
-            localStorage.setItem('user', JSON.stringify(response.data.user));
+            sessionStorage.setItem('user', JSON.stringify(response.data.user));
             setCurrentUser(response.data.user)
             if (response.status === 200) {
                 toast.success("Successfully logged in", succesMessajeContainer)

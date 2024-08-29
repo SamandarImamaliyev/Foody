@@ -25,7 +25,6 @@ const RestaurantBasket = () => {
         getBasketState()
     }, [refresh])
 
-    console.log(basket)
     return (
         <div className={styles.restaurantBasket}>
             <div className={styles.restaurantBasketHeader}>

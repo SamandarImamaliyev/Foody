@@ -1,3 +1,86 @@
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 467px;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+  }
+  
+  /* Modal Content */
+  .modalContent {
+    position: fixed;
+    bottom: 0;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 467px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    color: #c7c7c7;
+    overflow: auto;
+    border-radius: 20px 20px 0px 0px;
+ 
+  }
+  /* .modalContent::-webkit-scrollbar {
+    display: none;
+  } */
+ 
+  .modalHeader{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+  }
+ 
+  .close{
+    width: 35px;
+    height: 35px;
+    border-radius: 300px;
+    border: 1px solid #BDBDBD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  .close:hover{
+    cursor: pointer;
+    background-color: #f1f1f1dc;
+    transition: 333ms;
+  }
+ 
+  .modalBody{
+    margin-top: 20px;
+    height: 278px;
+    overflow-y: scroll;  
+    margin-bottom: 10px;
+  }
+
+  .modalBody::-webkit-scrollbar {
+    width: 3px;
+    height: 100px;
+
+  }
+  
+.modalBody::-webkit-scrollbar-track {
+    border-radius: 180px;
+  }
+  
+.modalBody::-webkit-scrollbar-thumb {
+    background-color: #D63626;
+    border-radius: 180px;
+  }
+
+  /* modal ends */
+
 .restaurantProducts{
     width: 846px;
     height: 961px;
@@ -18,3 +101,102 @@
     justify-content: center;
 
 }
+
+    .basketForMobile{
+    display: none;
+}
+
+
+.productItems{
+    height: 826px;
+    width: 100%;
+    overflow-y: scroll;  
+}
+.productItems::-webkit-scrollbar {
+    width: 3px;
+    height: 100px;
+
+  }
+  
+.productItems::-webkit-scrollbar-track {
+    border-radius: 180px;
+  }
+  
+.productItems::-webkit-scrollbar-thumb {
+    background-color: #D63626;
+    border-radius: 180px;
+  }
+
+@media screen and (min-width:375px) and (max-width:424px){
+    .restaurantProducts{
+        margin-left: 20px;
+        margin-right: 20px;
+        width: calc(100% - 40px);
+        height: 652px;
+    }
+
+    .heading{
+        width: 100%;
+        height: 62px;
+        font-size: 19px;
+        font-weight: 700;
+    }
+
+    .productItems{
+        height: 529px;
+    }
+
+    .basketForMobile{
+        width: 100%;
+        height: 41px;
+        border-radius: 100px;
+        box-shadow: 0px 3px 8px -2px #00000033;
+        margin-top: 15px;
+        display: block;
+    }
+
+     .basketForMobileActive{
+        background: #D63626;
+    }
+    .basketForMobileActive:hover{
+        transform: scale(0.98);
+        transition: 333ms;
+    }
+      .basketForMobileUnActive{
+       background: #FFFFFF;
+    }
+
+    .itemCount{
+        color: #BDBDBD;
+        font-weight: bold;
+    }
+
+    .itemCount span{
+        margin-right: 3px;
+    }
+
+    .checkout{
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        text-align: left;
+        color: #FFFFFF;
+
+    }
+
+    .price{
+        width: 79px;
+        height: 36px;
+        border-radius: 100px;
+        background: #FFFFFF;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        text-align: left;
+        color: #D63626;
+        margin-right: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  }
